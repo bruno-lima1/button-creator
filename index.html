@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width-device-width, initial-scale=1.0">
+  <title>Document</title>
+  <meta name="description" content="">
+  <link rel="icon" href="./" type="image/svg+xml">
+  <link rel="preload" href="./css/style.css" as="style">
+  <link rel="stylesheet" type="text/css" href="./css/style.css">
+  <script>document.documentElement.className += " js";</script>
+</head>
+
+<body>
+  <section class="button-creator">
+    <form data-controls>
+      <label for="width">width</label>
+      <input type="range" name="width" id="width" min="0" max="300">
+      <label for="height">height</label>
+      <input type="range" name="height" id="height" min="0" max="100">
+      <label for="borderRadius">border-radius</label>
+      <input type="range" name="borderRadius" id="borderRadius" min="0" max="100">
+      <select name="fontFamily" id="fontFamily">
+        <option value="Arial">Arial</option>
+        <option value="Georgia">Georgia</option>
+        <option value="Monospace">Monospace</option>
+      </select>
+      <label for="color">color</label>
+      <input type="color" name="color" id="color">
+      <label for="backgroundColor">background-color</label>
+      <input type="color" name="backgroundColor" id="backgroundColor">
+      <label for="texto">texto</label>
+      <input type="text" name="texto" id="texto">
+      <label for="fontSize">font-size</label>
+      <input type="number" name="fontSize" id="fontSize">
+      <label for="border">border</label>
+      <input type="text" name="border" id="border">
+    </form>
+    <div>
+      <button class="button" data-button>clique</button>
+      <pre><code data-cssText></code></pre>
+    </div>
+  </section>
+
+  <script src="./js/script.js"></script>
+</body>
+
+</html>
