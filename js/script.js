@@ -4,10 +4,10 @@ const cssText = document.querySelector("[data-cssText]");
 if (controls && button) {
   controls.addEventListener("change", handleButton);
   function handleButton(event) {
-    const name = event.target.name;
-    const value = event.target.value;
+    const { name, value } = event.target;
     handleStyle[name](value);
     showCss();
+    saveValues(name, value);
   }
   const handleStyle = {
     element: button,
@@ -40,6 +40,19 @@ if (controls && button) {
     },
   };
   function showCss() {
-    cssText.innerHTML = "<span>" + button.style.cssText.split("; ").join("; </span><span>");
+    cssText.innerHTML =
+      "<span>" + button.style.cssText.split("; ").join("; </span><span>");
   }
+  function saveValues(name, value) {
+    localStorage[name] = value;
+  }
+  function setValues() {
+    const properties = Object.keys(localStorage);
+    properties.forEach((propertie) => {
+      handleStyle[propertie](localStorage[propertie]);
+      controls.elements[propertie].values = localStorage[propertie];
+    });
+    showCss();
+  }
+  setValues();
 }
