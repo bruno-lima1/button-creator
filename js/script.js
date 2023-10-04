@@ -4,8 +4,7 @@ const cssText = document.querySelector("[data-cssText]");
 if (controls && button) {
   controls.addEventListener("change", handleButton);
   function handleButton(event) {
-    const name = event.target.name;
-    const value = event.target.value;
+    const {name, value} = event.target;
     handleStyle[name](value);
     showCss();
   }
