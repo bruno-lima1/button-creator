@@ -3,12 +3,11 @@ body {
   font-family: "Rubik", sans-serif;
   background: #eee;
   margin: 0;
-  padding: 0 0.75rem 0 0.75rem;
+  padding: .75rem;
 }
 label,
 select {
   display: block;
-  margin: 0.75rem 0 0.25rem 0;
 }
 input,
 select {
@@ -22,11 +21,8 @@ select {
   background: #fff;
   border-radius: 7px;
   padding: 1rem;
-  margin: 1rem 1.5rem 0 .75rem;
+  margin-right: 1rem;
   box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
-}
-.button {
-  margin: 1rem .75rem 0 0;
 }
 [data-cssText] {
   font-family: "Rubik", sans-serif;
@@ -34,5 +30,10 @@ select {
   flex-direction: column;
 }
 [data-cssText] span {
-  padding: 0.25rem;
+  padding: 0.25rem 0;
+}
+@media (max-width: 800px) {
+  .button-creator {
+    justify-content: start;
+  }
 }
