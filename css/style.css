@@ -19,7 +19,7 @@ select {
 }
 .button-creator form {
   background: #fff;
-  border-radius: 7px;
+  border-radius: 4px;
   padding: 1rem;
   margin-right: 1rem;
   box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
@@ -34,6 +34,10 @@ select {
 }
 @media (max-width: 800px) {
   .button-creator {
-    justify-content: start;
+    flex-direction: column;
+    align-items: center;
+  }
+  .button-creator form {
+    margin: 0 0 1rem 0;
   }
 }
