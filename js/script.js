@@ -33,7 +33,7 @@ if (controls && button) {
       this.element.innerText = value;
     },
     fontSize(value) {
-      this.element.style.fontSize = value + "rem";
+      this.element.style.fontSize = value + "px";
     },
     border(value) {
       this.element.style.border = value;
