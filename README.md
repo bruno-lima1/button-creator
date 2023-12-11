@@ -5,4 +5,4 @@
 Este repositório contém um criador de botões através de comandos de CSS. 
 
 ## Layout
-<img src="https://github.com/brunocesar2/buttonCreator/assets/111947999/324a8c59-2462-41eb-88b8-72eeba1c3e50" width="500px">
+<img src="https://github.com/brunocesar2/button-creator/assets/111947999/ca98df8e-f948-4d48-a4dc-a329d53ea94e" width="500px">
