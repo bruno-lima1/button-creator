@@ -1,15 +1,9 @@
-const controls = document.querySelector("[data-controls]");
+const form = document.querySelector("[data-controls]");
 const button = document.querySelector("[data-button]");
 const cssText = document.querySelector("[data-cssText]");
-if (controls && button) {
-  controls.addEventListener("change", handleButton);
-  function handleButton(event) {
-    const { name, value } = event.target;
-    handleStyle[name](value);
-    showCss();
-    saveValues(name, value);
-  }
-  const handleStyle = {
+if (form && button && cssText) {
+  form.addEventListener("change", handleStyle);
+  const changeStyle = {
     element: button,
     width(value) {
       this.element.style.width = value + "px";
@@ -23,14 +17,14 @@ if (controls && button) {
     fontFamily(value) {
       this.element.style.fontFamily = value;
     },
-    color(value) {
-      this.element.style.color = value;
-    },
     backgroundColor(value) {
       this.element.style.backgroundColor = value;
     },
+    color(value) {
+      this.element.style.color = value;
+    },
     texto(value) {
-      this.element.innerText = value;
+      this.element.innerHTML = value;
     },
     fontSize(value) {
       this.element.style.fontSize = value + "px";
@@ -39,7 +33,13 @@ if (controls && button) {
       this.element.style.border = value;
     },
   };
-  function showCss() {
+  function handleStyle(event) {
+    const { name, value } = event.target;
+    changeStyle[name](value);
+    showCssText();
+    saveValues(name, value);
+  }
+  function showCssText() {
     cssText.innerHTML =
       "<span>" + button.style.cssText.split("; ").join("; </span><span>");
   }
@@ -49,10 +49,10 @@ if (controls && button) {
   function setValues() {
     const properties = Object.keys(localStorage);
     properties.forEach((propertie) => {
-      handleStyle[propertie](localStorage[propertie]);
-      controls.elements[propertie].values = localStorage[propertie];
+      changeStyle[propertie](localStorage[propertie]);
+      form.elements[propertie].value = localStorage[propertie];
     });
-    showCss();
+    showCssText();
   }
   setValues();
 }
