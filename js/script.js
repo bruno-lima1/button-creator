@@ -1,8 +1,14 @@
-const form = document.querySelector("[data-controls]");
+const form = document.querySelector("[data-form]");
 const button = document.querySelector("[data-button]");
 const cssText = document.querySelector("[data-cssText]");
 if (form && button && cssText) {
   form.addEventListener("change", handleStyle);
+  function handleStyle(event) {
+    const { name, value } = event.target;
+    changeStyle[name](value);
+    showCssText();
+    saveValues(name, value);
+  }
   const changeStyle = {
     element: button,
     width(value) {
@@ -33,12 +39,6 @@ if (form && button && cssText) {
       this.element.style.border = value;
     },
   };
-  function handleStyle(event) {
-    const { name, value } = event.target;
-    changeStyle[name](value);
-    showCssText();
-    saveValues(name, value);
-  }
   function showCssText() {
     cssText.innerHTML =
       "<span>" + button.style.cssText.split("; ").join("; </span><span>");
